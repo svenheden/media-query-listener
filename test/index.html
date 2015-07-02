@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Media Query Listener test</title>
+        <link rel="stylesheet" href="breakpoints.css">
+    </head>
+    <body>
+        <p>Check out the console to see the breakpoint changes...</p>
+
+        <script src="../dist/mq-listener.js"></script>
+        <script>
+            mqListener.on('small', function() {
+                console.log('We\'re now in a small viewport.');
+            });
+
+            mqListener.on('medium', function() {
+                console.log('We\'re now in a medium sized viewport.');
+            });
+
+            mqListener.on('large', function() {
+                console.log('We\'re now in a large viewport.');
+            });
+
+            mqListener.on('change', function(breakpoint) {
+                console.log('This is another way to subscribe to the breakpoint change events. ' +
+                    'We\'re now in a ' + breakpoint + ' viewport.');
+            });
+        </script>
+    </body>
+</html>
