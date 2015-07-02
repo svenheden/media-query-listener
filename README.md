@@ -18,7 +18,7 @@ $ npm install --save media-query-listener
 
 In your CSS where you probably already have a few Media Queries set up, add a name to your breakpoints by adding the names as content to the `body:after` pseudo element. The Media Queries can be of any type and the names can be any strings. It should look something like this...
 
-```
+```css
 body:after {
     display: none; // this is needed to not display the breakpoint names on the page
     content: "small";
@@ -39,9 +39,9 @@ body:after {
 
 ### JavaScript
 
-If you want to use this module with Browserify you can require it as usual with `var mqListener = require('media-query-listener');`. If you want to use it without a build step you can download [mq-listener.js](dist/mq-listener.js) or the minified version [mq-listener.min.js](dist/mq-listener.min.js) from this repo and add it to your page with a `<script>` tag or include it in some other way.
+If you want to use this module with Browserify you can require it as usual with `var mqListener = require('media-query-listener')`. If you want to use it without a build step you can download [mq-listener.js](dist/mq-listener.js) or the minified version [mq-listener.min.js](dist/mq-listener.min.js) from this repo and add it to your page with a `<script>` tag or include it in some other way.
 
-Then you can then listen to events in your JavaScript for when a certain breakpoint is entered by the viewport like this...
+After the module is loaded you can listen to events for when a certain breakpoint is entered like this...
 
 ```js
 mqListener.on('small', function() {
@@ -53,7 +53,7 @@ mqListener.on('medium', function() {
 });
 
 mqListener.on('change', function(breakpoint) {
-    // We now entered a breakpoint and the 'breakpoint' parameter contains the current breakpoint defined in the CSS.
+    // We now entered a breakpoint and the callback function parameter contains the name of the entered breakpoint as defined in the CSS.
 });
 ```
 
