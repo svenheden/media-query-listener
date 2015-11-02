@@ -1,11 +1,11 @@
 {
   "name": "media-query-listener",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A module for observing media query breakpoint changes defined in CSS",
   "main": "index.js",
   "scripts": {
-    "bundle": "node_modules/.bin/browserify index.js -o dist/mq-listener.js -s mqListener",
-    "minify": "node_modules/.bin/uglifyjs dist/mq-listener.js -o dist/mq-listener.min.js -m",
+    "bundle": "browserify index.js -s mqListener -o dist/mq-listener.js",
+    "minify": "uglifyjs dist/mq-listener.js -m -o dist/mq-listener.min.js",
     "build": "npm run bundle && npm run minify"
   },
   "repository": {
@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/jonathanp/media-query-listener",
   "devDependencies": {
-    "browserify": "^10.2.4",
+    "browserify": "^12.0.1",
     "uglifyjs": "^2.4.10"
   },
   "dependencies": {
-    "tiny-emitter": "^1.0.0"
+    "tiny-emitter": "^1.0.1"
   }
 }
