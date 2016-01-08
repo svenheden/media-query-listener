@@ -3,7 +3,7 @@
 'use strict';
 
 if (!(window && window.getComputedStyle && window.addEventListener)) {
-    return;
+  return;
 }
 
 var Emitter = require('tiny-emitter');
@@ -12,17 +12,17 @@ var cssDeclaration = window.getComputedStyle(document.body, ':after');
 var lastBreakpoint;
 
 var checkBreakpoint = function() {
-    var currentBreakpoint = cssDeclaration
-        .getPropertyValue('content')
-        .replace(/'|"/g, '');
+  var currentBreakpoint = cssDeclaration
+    .getPropertyValue('content')
+    .replace(/'|"/g, '');
 
-    if (currentBreakpoint !== lastBreakpoint) {
-        emitter
-            .emit(currentBreakpoint)
-            .emit('change', currentBreakpoint);
+  if (currentBreakpoint !== lastBreakpoint) {
+    emitter
+      .emit(currentBreakpoint)
+      .emit('change', currentBreakpoint);
 
-        lastBreakpoint = currentBreakpoint;
-    }
+    lastBreakpoint = currentBreakpoint;
+  }
 };
 
 window.addEventListener('load', checkBreakpoint);
