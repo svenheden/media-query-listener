@@ -4,26 +4,29 @@
 'use strict';
 
 if (!(window && window.getComputedStyle && window.addEventListener)) {
-    return;
+  return;
 }
 
 var Emitter = require('tiny-emitter');
 var emitter = new Emitter();
 var cssDeclaration = window.getComputedStyle(document.body, ':after');
-var lastBreakpoint;
+var last;
 
-var checkBreakpoint = function() {
-    var currentBreakpoint = cssDeclaration
-        .getPropertyValue('content')
-        .replace(/'|"/g, '');
+function getCurrentBreakpoint() {
+  return cssDeclaration.getPropertyValue('content').replace(/'|"/g, '');
+}
 
-    if (currentBreakpoint !== lastBreakpoint) {
-        emitter
-            .emit(currentBreakpoint)
-            .emit('change', currentBreakpoint);
+function publishChange(breakpoint) {
+  emitter.emit(breakpoint).emit('change', breakpoint);
+}
 
-        lastBreakpoint = currentBreakpoint;
-    }
+function checkBreakpoint() {
+  var current = getCurrentBreakpoint();
+
+  if (current !== last) {
+    publishChange(current);
+    last = current;
+  }
 };
 
 window.addEventListener('load', checkBreakpoint);
