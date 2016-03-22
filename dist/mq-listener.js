@@ -6,10 +6,14 @@ var Emitter = require('tiny-emitter');
 var emitter = new Emitter();
 
 if (window && window.getComputedStyle && window.addEventListener) {
-  var cssDeclaration = window.getComputedStyle(document.body, ':after'),
+  var cssDeclaration = null,
     last = null;
 
   var getCurrentBreakpoint = function () {
+    if (!cssDeclaration) {
+      cssDeclaration = window.getComputedStyle(document.body, ':after');
+    }
+
     return cssDeclaration.getPropertyValue('content').replace(/'|"/g, '');
   };
 
