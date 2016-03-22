@@ -1,6 +1,6 @@
 {
   "name": "media-query-listener",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A module for observing media query breakpoint changes defined in CSS",
   "main": "index.js",
   "scripts": {
