@@ -5,15 +5,14 @@ var Emitter = require('tiny-emitter');
 var emitter = new Emitter();
 
 if (window && window.getComputedStyle && window.addEventListener) {
-  var cssDeclaration = null,
-    last = null;
+  var style, last;
 
   var getCurrentBreakpoint = function () {
-    if (!cssDeclaration) {
-      cssDeclaration = window.getComputedStyle(document.body, ':after');
+    if (!style) {
+      style = window.getComputedStyle(document.body, ':after');
     }
 
-    return cssDeclaration.getPropertyValue('content').replace(/'|"/g, '');
+    return style.getPropertyValue('content').replace(/'|"/g, '');
   };
 
   var publishChange = function (breakpoint) {
