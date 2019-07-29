@@ -86,7 +86,7 @@ Unsubscribe from a breakpoint change event or all events. If no callback is prov
 
 ## License
 
-MIT © [Jonathan Persson](https://github.com/jonathanp)
+MIT © [Jonathan Svenheden](https://github.com/svenheden)
 
 [npm-url]: https://npmjs.org/package/media-query-listener
 [npm-image]: https://badge.fury.io/js/media-query-listener.svg

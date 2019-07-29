@@ -1,6 +1,6 @@
 {
   "name": "media-query-listener",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A module for observing media query breakpoint changes defined in CSS",
   "main": "index.js",
   "scripts": {
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/jonathanp/media-query-listener.git"
+    "url": "https://github.com/svenheden/media-query-listener.git"
   },
-  "author": "Jonathan Persson <persson.jonathan@gmail.com>",
+  "author": "Jonathan Svenheden <jonathan@svenheden.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/jonathanp/media-query-listener/issues"
+    "url": "https://github.com/svenheden/media-query-listener/issues"
   },
-  "homepage": "https://github.com/jonathanp/media-query-listener",
+  "homepage": "https://github.com/svenheden/media-query-listener",
   "devDependencies": {
     "browserify": "^12.0.1",
     "uglifyjs": "^2.4.10"
